@@ -2,6 +2,14 @@ import java.util.*;
 
 public class NoNullArrayList<T> extends ArrayList<T> {
 
+  public NoNullArrayList(){
+      super();
+  }
+
+  public NoNullArrayList(int startingCapacity){
+    super(startingCapacity);
+  }
+
   public T set(int index, T element){
     if (element.equals(null)) throw IllegalArgumentException;
     else super.set(index, element);
