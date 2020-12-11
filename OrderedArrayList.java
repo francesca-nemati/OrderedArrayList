@@ -20,15 +20,16 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   public boolean add(T e) {
     for (int i = 0; i < size(); i++) {
       if (e.compareTo(get(i)) <= 0) {
-        super.add(i,e);
+        return super.add(i,e);
       }
     }
-    super.add(size(),e);
+    return super.add(size(),e);
   }
 
   public T set(int index, T element){
-    remove(index);
+    T e = remove(index);
     add(element);
+    return e;
   }
 
 }
