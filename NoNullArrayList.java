@@ -11,17 +11,17 @@ public class NoNullArrayList<T> extends ArrayList<T> {
   }
 
   public T set(int index, T element){
-    if (element.equals(null)) throw IllegalArgumentException;
+    if (element == null) throw new IllegalArgumentException ("Cannot add NULL to list");
     else return super.set(index, element);
   }
 
   public void add(int index, T element) {
-    if (element.equals(null)) throw IllegalArgumentException;
-    else return super.add(index, element);
+    if (element == null) throw new IllegalArgumentException ("Cannot add NULL to list");
+    else super.add(index, element);
   }
 
   public boolean add(T e) {
-    if (e.equals(null)) throw IllegalArgumentException;
+    if (e == null) throw new IllegalArgumentException ("Cannot add NULL to list");
     else return super.add(e);
   }
 
