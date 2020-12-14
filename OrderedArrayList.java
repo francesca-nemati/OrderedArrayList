@@ -18,12 +18,14 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
   }
 
   public T set(int index, T element){
-    T e = remove(index);
+    if (element == null) throw new IllegalArgumentException ("Cannot add NULL to list");
+    T e = super.remove(index);
     add(element);
     return e;
   }
 
   private int rightIndex(T element){
+    if (element == null) return size();
     for (int i = 0; i < size(); i++) {
       if (element.compareTo(get(i)) <= 0) {
         return i;
